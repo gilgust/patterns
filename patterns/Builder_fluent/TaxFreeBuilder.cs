@@ -23,7 +23,7 @@ namespace Builder_fluent
         }
         public ITaxFreeBuilder BuildPassportID( )
         {
-            _checkToPrint.Append(_check._PassportID + Environment.NewLine);
+            _checkToPrint.Append(_check._PassportID + Environment.NewLine + Environment.NewLine);
             return this;
         }
 
