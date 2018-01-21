@@ -12,6 +12,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Singleton", "..\Singleton\S
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstract_Factory", "..\Abstract_Factory\Abstract_Factory.csproj", "{22AF86F2-D718-43B5-B55F-8C54EF6F8E7A}"
 >>>>>>> Abstract_Factory
 =======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstract_Factory", "..\Abstract_Factory\Abstract_Factory.csproj", "{22AF86F2-D718-43B5-B55F-8C54EF6F8E7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Builder_fluent", "Builder_fluent\Builder_fluent.csproj", "{34F88A8F-4B5F-4CCD-A762-F2BD294FD14D}"
 >>>>>>> Builder
 EndProject
 Global
@@ -40,6 +43,10 @@ Global
 <<<<<<< HEAD
 >>>>>>> Abstract_Factory
 =======
+		{34F88A8F-4B5F-4CCD-A762-F2BD294FD14D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34F88A8F-4B5F-4CCD-A762-F2BD294FD14D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34F88A8F-4B5F-4CCD-A762-F2BD294FD14D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34F88A8F-4B5F-4CCD-A762-F2BD294FD14D}.Release|Any CPU.Build.0 = Release|Any CPU
 >>>>>>> Builder
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
