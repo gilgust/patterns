@@ -1,9 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "patterns", "patterns.csproj", "{7FA40593-4416-4DA8-9AD1-118116A696C4}"
+EndProject
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Singleton", "..\Singleton\Singleton.csproj", "{6FF7331F-04A9-43EA-B2E5-109BBE4F13D9}"
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstract_Factory", "..\Abstract_Factory\Abstract_Factory.csproj", "{22AF86F2-D718-43B5-B55F-8C54EF6F8E7A}"
+>>>>>>> Abstract_Factory
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstract_Factory", "..\Abstract_Factory\Abstract_Factory.csproj", "{22AF86F2-D718-43B5-B55F-8C54EF6F8E7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Builder_fluent", "Builder_fluent\Builder_fluent.csproj", "{34F88A8F-4B5F-4CCD-A762-F2BD294FD14D}"
+>>>>>>> Builder
+=======
+>>>>>>> Singleton
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "objects_pool", "..\objects_pool\objects_pool.csproj", "{81351617-93A4-46A7-9638-EE0FCC4EC4DF}"
+>>>>>>> objects_pool
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +34,45 @@ Global
 		{7FA40593-4416-4DA8-9AD1-118116A696C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FA40593-4416-4DA8-9AD1-118116A696C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FA40593-4416-4DA8-9AD1-118116A696C4}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Singleton
+		{6FF7331F-04A9-43EA-B2E5-109BBE4F13D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FF7331F-04A9-43EA-B2E5-109BBE4F13D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FF7331F-04A9-43EA-B2E5-109BBE4F13D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FF7331F-04A9-43EA-B2E5-109BBE4F13D9}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> Builder
+		{22AF86F2-D718-43B5-B55F-8C54EF6F8E7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22AF86F2-D718-43B5-B55F-8C54EF6F8E7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22AF86F2-D718-43B5-B55F-8C54EF6F8E7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22AF86F2-D718-43B5-B55F-8C54EF6F8E7A}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
+>>>>>>> Abstract_Factory
+=======
+		{34F88A8F-4B5F-4CCD-A762-F2BD294FD14D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34F88A8F-4B5F-4CCD-A762-F2BD294FD14D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34F88A8F-4B5F-4CCD-A762-F2BD294FD14D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34F88A8F-4B5F-4CCD-A762-F2BD294FD14D}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> Builder
+=======
+>>>>>>> Singleton
+=======
+		{81351617-93A4-46A7-9638-EE0FCC4EC4DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81351617-93A4-46A7-9638-EE0FCC4EC4DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81351617-93A4-46A7-9638-EE0FCC4EC4DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81351617-93A4-46A7-9638-EE0FCC4EC4DF}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> objects_pool
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B58AA210-4F41-46B1-9A08-EB8DE9C92B3C}
 	EndGlobalSection
 EndGlobal
