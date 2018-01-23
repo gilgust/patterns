@@ -10,6 +10,12 @@ namespace facade
     {
         static void Main(string[] args)
         {
+            var calc = new Calculator();
+            var a = calc.Factorial(7);
+            Console.WriteLine(a);
+            a = calc.Division(34, 7);
+            Console.Write(a);
+            Console.ReadKey();
         }
     }
 }
