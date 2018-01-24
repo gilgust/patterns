@@ -10,6 +10,13 @@ namespace Proxy
     {
         static void Main(string[] args)
         {
+            var proxyStr = new ProxyStr("aaaAqqqEEEe");
+            proxyStr.CountRepeats('a', 'b', 'e');
+
+            Console.WriteLine(proxyStr.Print());
+
+
+            Console.ReadKey();
         }
     }
 }
