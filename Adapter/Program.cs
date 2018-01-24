@@ -4,13 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace patterns
+namespace Adapter
 {
     class Program
     {
         static void Main(string[] args)
         {
-             
+
+            AdapterStr adapter = new AdapterStr("aaaAqqqEEEe");
+            adapter.CountRepeats('a', 'b', 'e');
+            Console.ReadKey();
         }
     }
 }
