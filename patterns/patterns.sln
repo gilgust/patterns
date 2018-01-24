@@ -5,7 +5,11 @@ VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "patterns", "patterns.csproj", "{7FA40593-4416-4DA8-9AD1-118116A696C4}"
 EndProject
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapter", "..\Adapter\Adapter.csproj", "{6D53209E-A441-4E59-B40C-BDAA700E6438}"
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "facade", "..\facade\facade.csproj", "{C7357601-E6FA-44EC-88AB-202A6B29C701}"
+>>>>>>> Facade
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +21,17 @@ Global
 		{7FA40593-4416-4DA8-9AD1-118116A696C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FA40593-4416-4DA8-9AD1-118116A696C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FA40593-4416-4DA8-9AD1-118116A696C4}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
 		{6D53209E-A441-4E59-B40C-BDAA700E6438}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6D53209E-A441-4E59-B40C-BDAA700E6438}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D53209E-A441-4E59-B40C-BDAA700E6438}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D53209E-A441-4E59-B40C-BDAA700E6438}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{C7357601-E6FA-44EC-88AB-202A6B29C701}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7357601-E6FA-44EC-88AB-202A6B29C701}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7357601-E6FA-44EC-88AB-202A6B29C701}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7357601-E6FA-44EC-88AB-202A6B29C701}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> Facade
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
