@@ -1,0 +1,39 @@
+﻿<Window x:Class="WavRedactor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WavRedactor"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="480" Width="525" MinHeight="350" MinWidth="525">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" Background="BlanchedAlmond">
+			<Label Content="File name: "/>
+			<TextBox x:Name="TextBoxFileName" MinWidth="200"/>
+        </StackPanel>
+		<StackPanel Orientation="Horizontal">
+			<Button x:Name="OpenButton" Content="Open" Click="OpenButton_OnClick"/>
+			<Button x:Name="PlayButton" Content="Play" Click="PlayButton_OnClick"/>
+			<Button x:Name="SaveButton" Content="Save" Click="SaveButton_OnClick"/>
+			<Button x:Name="MoveButton" Content="Move" Click="MoveButton_OnClick"/>
+			<Button x:Name="RemoveButton" Content="Remove" Click="RemoveButton_OnClick"/>
+		</StackPanel>
+
+		<Label Content="Source Directory"/>
+		<TextBox x:Name="TBSource"></TextBox>
+		<DataGrid x:Name="DataGridSource" Height="150" AutoGenerateColumns="False" MouseDoubleClick="Grid_mouseDK">
+			<DataGrid.Columns>
+				<DataGridTextColumn IsReadOnly="True" Width="250" Binding="{Binding}" Header="Name"/>
+			</DataGrid.Columns>
+		</DataGrid>
+
+	    <Label Content="Target Directory"/>
+		<TextBox x:Name="TBTarget" ></TextBox>
+		<DataGrid x:Name="DataGridTarget" Height="150" AutoGenerateColumns="False" MouseDoubleClick="Grid_mouseDK">
+			<DataGrid.Columns>
+				<DataGridTextColumn IsReadOnly="True" Width="250" Binding="{Binding}" Header="Name"  />
+			</DataGrid.Columns>
+		</DataGrid>
+
+	</StackPanel>
+</Window>

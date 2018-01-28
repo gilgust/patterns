@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Servicies
+﻿namespace Servicies
 {
     public interface IAddPath
     {
-        void SetPath(string path);
+        string PathToFite { get; set; }
+        string NameFile { get; set; }
     }
 }

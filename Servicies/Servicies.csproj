@@ -40,10 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AudioService.cs" />
-    <Compile Include="FileService.cs" />
+    <Compile Include="fileService\IFileService.cs" />
+    <Compile Include="Media\AudioService.cs" />
+    <Compile Include="fileService\FileService.cs" />
     <Compile Include="IAddPath.cs" />
-    <Compile Include="IAudioPlayer.cs" />
+    <Compile Include="Media\IAudioPlayer.cs" />
     <Compile Include="MessageBoxService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiciesFactory.cs" />

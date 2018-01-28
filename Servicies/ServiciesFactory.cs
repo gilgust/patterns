@@ -8,15 +8,22 @@ namespace Servicies
 {
     public class ServiciesFactory
     {
-        private string _path;
-
-        public ServiciesFactory(string path)
+        public ServiciesFactory()
         {
-            _path = path;
         }
+
+        public string Path { get; set; }
+
         public IAudioPlayer GetAudioPlayer()
         {
-            return new AudioService(_path);
+            var audioPlayer = AudioService.GetInstance();
+            audioPlayer.PathToFite = Path;
+            return audioPlayer;
+        }
+
+        public IFileService GetFileService()
+        {
+            return FileService.GetInstance();
         }
     }
 }
