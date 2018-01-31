@@ -70,16 +70,19 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\mainPage.html" />
+    <None Include="mainPage.html" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\simplePage_1.html" />
+    <None Include="simplePage_1.html" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\simplePage_2.html" />
+    <None Include="simplePage_2.html" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\simplePage_3.html" />
+    <None Include="simplePage_3.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="simplePage_4.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

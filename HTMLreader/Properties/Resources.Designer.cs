@@ -69,19 +69,25 @@ namespace HTMLreader.Properties {
         ///&lt;/head&gt;
         ///&lt;body&gt;
         ///	&lt;div&gt;
-        ///		&lt;h1&gt;
-        ///			раздел 1
-        ///		&lt;/h1&gt;
+        ///		&lt;a href=&quot;simplePage_1.html&quot;&gt;&lt;h1&gt;раздел 1&lt;/h1&gt;&lt;/a&gt;
         ///		&lt;p&gt;
-        ///			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, distinctio. Pariatur a, at labore voluptatem expedita ad maiores eaque 		reiciendis dolores, esse accusamus perspiciatis, consequatur est! Nisi quos, nostrum. Eius.
+        ///			--раздел--1
+        ///			краткое описание
+        ///			краткое описание
         ///		&lt;/p&gt;
         ///	&lt;/div&gt;
         ///	&lt;div&gt;
-        ///		&lt;h1&gt;
-        ///			раздел 2
-        ///		&lt;/h1&gt;
+        ///		&lt;a href=&quot;simplePage_2.html&quot;&gt;&lt;h1&gt;раздел 2&lt;/h1&gt;&lt;/a&gt;
         ///		&lt;p&gt;
-        ///			Lorem ipsum dolor sit amet, consectetur adipisicing el [rest of string was truncated]&quot;;.
+        ///			--раздел--2
+        ///			краткое описание
+        ///			краткое описание
+        ///		&lt;/p&gt;
+        ///	&lt;/div&gt;
+        ///
+        ///	&lt;div&gt;
+        ///		&lt;a href=&quot;simplePage_3.html&quot;&gt;&lt;h1&gt;раздел 3.1&lt;/h1&gt;&lt;/a&gt;
+        ///		&lt;a href=&quot;simplePage_4.html&quot;&gt;&lt;h1&gt;раздел 3.2&lt;/h1&gt;&lt; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string mainPage {
             get {
@@ -103,8 +109,12 @@ namespace HTMLreader.Properties {
         ///		&lt;/h1&gt;
         ///		&lt;p&gt;
         ///			
-        ///			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, distinctio. Pariatur a, at labore voluptatem expedita ad maiores eaque 		reiciendis dolores, esse accusamus perspiciatis, consequatur est! Nisi quos, nostrum. Eius.
-        ///			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, distinctio. Pariatur a, at labor [rest of string was truncated]&quot;;.
+        ///			----------1---------------
+        ///			какойто текст на странице 1
+        ///		&lt;/p&gt;
+        ///	&lt;/div&gt;
+        ///&lt;/body&gt;
+        ///&lt;/html&gt;.
         /// </summary>
         internal static string simplePage_1 {
             get {
@@ -122,12 +132,16 @@ namespace HTMLreader.Properties {
         ///&lt;body&gt;
         ///	&lt;div&gt;
         ///		&lt;h1&gt;
-        ///			Простая страница 3.
+        ///			Простая страница 2.
         ///		&lt;/h1&gt;
         ///		&lt;p&gt;
         ///			
-        ///			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, distinctio. Pariatur a, at labore voluptatem expedita ad maiores eaque 		reiciendis dolores, esse accusamus perspiciatis, consequatur est! Nisi quos, nostrum. Eius.
-        ///			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, distinctio. Pariatur a, at labor [rest of string was truncated]&quot;;.
+        ///			----------2---------------
+        ///			какойто текст на странице 2
+        ///		&lt;/p&gt;
+        ///	&lt;/div&gt;
+        ///&lt;/body&gt;
+        ///&lt;/html&gt;.
         /// </summary>
         internal static string simplePage_2 {
             get {
@@ -145,16 +159,46 @@ namespace HTMLreader.Properties {
         ///&lt;body&gt;
         ///	&lt;div&gt;
         ///		&lt;h1&gt;
-        ///			Простая страница 2.
+        ///			Простая страница 3.
         ///		&lt;/h1&gt;
         ///		&lt;p&gt;
-        ///			
-        ///			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, distinctio. Pariatur a, at labore voluptatem expedita ad maiores eaque 		reiciendis dolores, esse accusamus perspiciatis, consequatur est! Nisi quos, nostrum. Eius.
-        ///			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, distinctio. Pariatur a, at labor [rest of string was truncated]&quot;;.
+        ///			----------3---------------
+        ///			какойто текст на странице 3
+        ///		&lt;/p&gt;
+        ///	&lt;/div&gt;
+        ///&lt;/body&gt;
+        ///&lt;/html&gt;.
         /// </summary>
         internal static string simplePage_3 {
             get {
                 return ResourceManager.GetString("simplePage_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&quot;en&quot;&gt;
+        ///&lt;head&gt;
+        ///	&lt;meta charset=&quot;UTF-8&quot;&gt;
+        ///	&lt;title&gt;Document&lt;/title&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///	&lt;div&gt;
+        ///		&lt;h1&gt;
+        ///			Простая страница 4.
+        ///		&lt;/h1&gt;
+        ///		&lt;p&gt;
+        ///			----------4---------------
+        ///			какойто текст на странице 4 
+        ///
+        ///		&lt;/p&gt;
+        ///	&lt;/div&gt;
+        ///&lt;/body&gt;
+        ///&lt;/html&gt;.
+        /// </summary>
+        internal static string simplePage_4 {
+            get {
+                return ResourceManager.GetString("simplePage_4", resourceCulture);
             }
         }
     }
