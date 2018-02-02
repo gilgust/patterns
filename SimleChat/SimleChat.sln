@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "patterns", "patterns.csproj", "{7FA40593-4416-4DA8-9AD1-118116A696C4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimleChat", "..\SimleChat\SimleChat.csproj", "{3848E7A2-67B7-40C7-AEF0-34564B236566}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimleChat", "SimleChat.csproj", "{3848E7A2-67B7-40C7-AEF0-34564B236566}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7FA40593-4416-4DA8-9AD1-118116A696C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7FA40593-4416-4DA8-9AD1-118116A696C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7FA40593-4416-4DA8-9AD1-118116A696C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7FA40593-4416-4DA8-9AD1-118116A696C4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3848E7A2-67B7-40C7-AEF0-34564B236566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3848E7A2-67B7-40C7-AEF0-34564B236566}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3848E7A2-67B7-40C7-AEF0-34564B236566}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -26,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {9CE5FBCE-FE09-4A2F-B8A4-C6FB6480B01C}
+		SolutionGuid = {CEBF046E-0C3F-4A34-A980-F2E21DF7C9FF}
 	EndGlobalSection
 EndGlobal
