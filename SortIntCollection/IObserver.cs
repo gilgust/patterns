@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace patterns
+namespace SortIntCollection
 {
-    class Program
+    interface IObserver
     {
-        static void Main(string[] args)
-        {
-            Console.ReadKey();
-        }
+        void OnChange(SortIntCollection collection);
     }
 }
