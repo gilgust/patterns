@@ -10,6 +10,7 @@ namespace patterns
     {
         static void Main(string[] args)
         {
+            Console.ReadKey();
         }
     }
 }
