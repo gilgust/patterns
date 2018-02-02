@@ -10,6 +10,14 @@ namespace SimleChat
     {
         private readonly ChatRoom _chatRoom;
         private readonly string _name;
+        private readonly Dialog _dialog;
+
+        public Participant(Dialog dialog, string name)
+        {
+            _dialog = dialog;
+            _name = name;
+            _dialog.SignOn(this);
+        }
 
         public Participant(ChatRoom chatRoom, string name)
         {
