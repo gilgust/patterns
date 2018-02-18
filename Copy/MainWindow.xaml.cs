@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Forms;
+using System.IO;
 
 namespace Copy
 {
@@ -20,9 +22,35 @@ namespace Copy
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly Model _model;
+        private Stream _path;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            _model = new Model();
+            this.DataContext = _model;
+        }
+
+        private void Path_OnClick(object sender, RoutedEventArgs e)
+        {
+            var ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                _model.Path = ofd.FileName;
+            
+        }
+
+        private void TargetPath_OnClick(object sender, RoutedEventArgs e)
+        {
+            var sfd = new SaveFileDialog();
+            if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                _model.TargetPath = sfd.FileName;
+        }
+
+        private void CopyButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            _model.Copy();
         }
     }
 }
