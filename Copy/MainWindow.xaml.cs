@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
 using System.IO;
+using Application = System.Windows.Forms.Application;
 
 namespace Copy
 {
@@ -33,14 +34,28 @@ namespace Copy
             this.DataContext = _model;
         }
 
+
+        //select file
         private void Path_OnClick(object sender, RoutedEventArgs e)
         {
             var ofd = new OpenFileDialog();
+            ofd.InitialDirectory = Application.StartupPath;
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                _model.Path = ofd.FileName;
-            
+                _model.SourcePath = ofd.FileName;
+
         }
 
+        //select directory
+        private void DirectoryPathButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            var fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                _model.DirectoryPath = fbd.SelectedPath;
+            _model.SourcePath = _model.DirectoryPath;
+
+        }
+
+        //set target path
         private void TargetPath_OnClick(object sender, RoutedEventArgs e)
         {
             var sfd = new SaveFileDialog();
@@ -48,6 +63,7 @@ namespace Copy
                 _model.TargetPath = sfd.FileName;
         }
 
+        // start copy
         private void CopyButton_OnClick(object sender, RoutedEventArgs e)
         {
             _model.Copy();
