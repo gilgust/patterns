@@ -21,6 +21,7 @@ namespace Copy
         private readonly int _bufferSize;
 
 
+
         public Model()
         { 
             _sourcePath = String.Empty;
@@ -28,6 +29,9 @@ namespace Copy
             _bufferSize = 4096;
             _progress = new Progress<int>(procent => Progress = procent);
         }
+
+
+        #region Property 
 
         public int Progress
         {
@@ -44,8 +48,8 @@ namespace Copy
             get => _sourcePath;
             set
             {
-                _sourcePath = value; 
-                OnPropertyChanged(nameof(SourcePath)); 
+                _sourcePath = value;
+                OnPropertyChanged(nameof(SourcePath));
             }
         }
 
@@ -54,11 +58,11 @@ namespace Copy
             get => _targetPath;
             set
             {
-                _targetPath = value; 
-                OnPropertyChanged(nameof(TargetPath)); 
+                _targetPath = value;
+                OnPropertyChanged(nameof(TargetPath));
             }
-        } 
-     
+        }
+        #endregion
 
         public void Copy()
         {
@@ -104,7 +108,7 @@ namespace Copy
 
             var percentOfDirectorySize = GetFolderSize(sourceDirectory) / 100;
             var compleatedProcent = 0;
-            long counter = 0;
+            int counter = 0;
 
             var fileArray = sourceDirInfo.GetFiles();
             foreach (var file in fileArray)
@@ -120,52 +124,37 @@ namespace Copy
             ((IProgress<int>)_progress).Report(100);
         }
 
-        private void CopyFile(string sourceFile, string targetDirecrory, long percentOfDirectorySize, ref int compleatedProcent, ref long counter)
+        private void CopyFile(string sourceFile, string targetDirecrory, int percentOfDirectorySize, ref int compleatedProcent, ref int counter)
         {
             var sourceInfo = new FileInfo(sourceFile);
             using (FileStream reader = new FileStream(sourceFile, FileMode.Open, FileAccess.Read))
             using (FileStream writer = new FileStream(targetDirecrory + @"\" + sourceInfo.Name, FileMode.Create, FileAccess.Write))
-            {
-
-
+            { 
                 while (reader.Position < reader.Length)
                 {
                     var arrayBytes = new byte[_bufferSize];
-                    var checkSize = reader.Read(arrayBytes, 0, _bufferSize);
+                    reader.Read(arrayBytes, 0, _bufferSize);
                     writer.Write(arrayBytes, 0, _bufferSize);
-
-                    if (checkSize < _bufferSize)
-                        counter += checkSize;
-                    else
-                        counter += _bufferSize;
-
+                    
                     if (counter > compleatedProcent * percentOfDirectorySize)
                         ((IProgress<int>)_progress).Report(compleatedProcent++);
                 }
             }
         }
 
-        private long GetFolderSize(string directory)
+        private int GetFolderSize(string directory)
         {
-            long directorySize = 0;
-
-            foreach (var file in Directory.GetFiles(directory))
-            {
-                var fInfo = new FileInfo(file);
-                directorySize += fInfo.Length;
-            }
+            var numberOfFiles = Directory.GetFiles(directory).Count();
 
             foreach (var direct in Directory.GetDirectories(directory))
             {
-                directorySize += GetFolderSize(direct);
+                numberOfFiles += GetFolderSize(direct);
             }
-            return directorySize;
-        }
-
-
-
+            return numberOfFiles;
+        } 
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
