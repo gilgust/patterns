@@ -23,8 +23,7 @@ namespace Copy
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly Model _model;
-        private Stream _path;
+        private readonly Model _model; 
 
         public MainWindow()
         {
@@ -38,11 +37,12 @@ namespace Copy
         //select file
         private void Path_OnClick(object sender, RoutedEventArgs e)
         {
-            var ofd = new OpenFileDialog();
-            ofd.InitialDirectory = Application.StartupPath;
+            var ofd = new OpenFileDialog
+            {
+                InitialDirectory = Application.StartupPath
+            };
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 _model.SourcePath = ofd.FileName;
-
         }
 
         //select directory
@@ -50,17 +50,23 @@ namespace Copy
         {
             var fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                _model.DirectoryPath = fbd.SelectedPath;
-            _model.SourcePath = _model.DirectoryPath;
-
+                _model.SourcePath = fbd.SelectedPath;
         }
 
-        //set target path
+        //set target path for File
         private void TargetPath_OnClick(object sender, RoutedEventArgs e)
         {
             var sfd = new SaveFileDialog();
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 _model.TargetPath = sfd.FileName;
+        }
+
+        //set target path for Directory
+        private void TargetDirectoryPathButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            var fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                _model.TargetPath = fbd.SelectedPath;
         }
 
         // start copy
