@@ -34,7 +34,7 @@ namespace Copy
         }
 
 
-        //select file
+        //set source path file
         private void Path_OnClick(object sender, RoutedEventArgs e)
         {
             var ofd = new OpenFileDialog
@@ -45,7 +45,7 @@ namespace Copy
                 _model.SourcePath = ofd.FileName;
         }
 
-        //select directory
+        //set source path directory
         private void DirectoryPathButton_OnClick(object sender, RoutedEventArgs e)
         {
             var fbd = new FolderBrowserDialog();

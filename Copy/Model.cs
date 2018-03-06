@@ -11,23 +11,23 @@ using System.Threading;
 
 namespace Copy
 {
-    class Model: INotifyPropertyChanged
+    class Model : INotifyPropertyChanged
     {
         private string _sourcePath;
-        private string _targetPath;  
+        private string _targetPath;
         private Task _copyTask;
         private Progress<int> _progress;
         private int _progressCount;
         private readonly int _bufferSize;
-
-
+        private object _lockObj;
 
         public Model()
-        { 
+        {
             _sourcePath = String.Empty;
             _targetPath = String.Empty;
             _bufferSize = 4096;
             _progress = new Progress<int>(procent => Progress = procent);
+            _lockObj = new object();
         }
 
 
@@ -38,8 +38,11 @@ namespace Copy
             get => _progressCount;
             set
             {
-                _progressCount = value;
-                OnPropertyChanged(nameof(Progress));
+                if (_progressCount != value)
+                {
+                    _progressCount = value;
+                    OnPropertyChanged(nameof(Progress));
+                }
             }
         }
 
@@ -48,8 +51,11 @@ namespace Copy
             get => _sourcePath;
             set
             {
-                _sourcePath = value;
-                OnPropertyChanged(nameof(SourcePath));
+                if (_sourcePath != value)
+                {
+                    _sourcePath = value;
+                    OnPropertyChanged(nameof(SourcePath));
+                }
             }
         }
 
@@ -72,10 +78,13 @@ namespace Copy
             }
             if (Directory.Exists(TargetPath) && Directory.Exists(SourcePath))
             {
+                if (string.Equals(SourcePath, TargetPath))
+                    TargetPath += "_copy";
                 _copyTask = Task.Run(() => CopyFolder(SourcePath, TargetPath));
             }
         }
 
+        //method for copy only one file
         private void CopyFile()
         {
             using (FileStream reader = new FileStream(_sourcePath, FileMode.Open, FileAccess.Read))
@@ -100,8 +109,9 @@ namespace Copy
             }
         }
 
+        //method for copy folder
         private void CopyFolder(string sourceDirectory, string targetDirectory)
-        { 
+        {
             var sourceDirInfo = new DirectoryInfo(sourceDirectory);
             Directory.CreateDirectory(targetDirectory + @"\" + sourceDirInfo.Name);
             var targetDirInfo = new DirectoryInfo(targetDirectory + @"\" + sourceDirInfo.Name);
@@ -119,29 +129,56 @@ namespace Copy
             var directoryArray = sourceDirInfo.GetDirectories();
             foreach (var directory in directoryArray)
             {
-                CopyFolder(directory.FullName, targetDirInfo.FullName);
+                CopyFolder(directory.FullName, targetDirInfo.FullName, percentOfDirectorySize, ref compleatedProcent, ref counter);
             }
-            ((IProgress<int>)_progress).Report(100);
+            if (counter == percentOfDirectorySize * 100)
+                ((IProgress<int>)_progress).Report(100);
         }
 
+        //method for copy folder in folder
+        private void CopyFolder(string sourceDirectory, string targetDirectory, int percentOfDirectorySize, ref int compleatedProcent, ref int counter)
+        {
+            var sourceDirInfo = new DirectoryInfo(sourceDirectory);
+            Directory.CreateDirectory(targetDirectory + @"\" + sourceDirInfo.Name);
+            var targetDirInfo = new DirectoryInfo(targetDirectory + @"\" + sourceDirInfo.Name);
+
+            var fileArray = sourceDirInfo.GetFiles();
+            foreach (var file in fileArray)
+            {
+                CopyFile(file.FullName, targetDirInfo.FullName + @"\", percentOfDirectorySize, ref compleatedProcent, ref counter);
+            }
+
+            var directoryArray = sourceDirInfo.GetDirectories();
+            foreach (var directory in directoryArray)
+            {
+                CopyFolder(directory.FullName, targetDirInfo.FullName, percentOfDirectorySize, ref compleatedProcent, ref counter);
+            }
+        }
+
+
+        //method copy file in folder
         private void CopyFile(string sourceFile, string targetDirecrory, int percentOfDirectorySize, ref int compleatedProcent, ref int counter)
         {
             var sourceInfo = new FileInfo(sourceFile);
             using (FileStream reader = new FileStream(sourceFile, FileMode.Open, FileAccess.Read))
             using (FileStream writer = new FileStream(targetDirecrory + @"\" + sourceInfo.Name, FileMode.Create, FileAccess.Write))
-            { 
+            {
                 while (reader.Position < reader.Length)
                 {
                     var arrayBytes = new byte[_bufferSize];
                     reader.Read(arrayBytes, 0, _bufferSize);
                     writer.Write(arrayBytes, 0, _bufferSize);
-                    
-                    if (counter > compleatedProcent * percentOfDirectorySize)
-                        ((IProgress<int>)_progress).Report(compleatedProcent++);
+
+                    lock (_lockObj)
+                    {
+                        if (counter > compleatedProcent * percentOfDirectorySize)
+                            ((IProgress<int>)_progress).Report(compleatedProcent++);
+                    }
                 }
             }
         }
 
+        //get number of file in filder
         private int GetFolderSize(string directory)
         {
             var numberOfFiles = Directory.GetFiles(directory).Count();
@@ -151,7 +188,7 @@ namespace Copy
                 numberOfFiles += GetFolderSize(direct);
             }
             return numberOfFiles;
-        } 
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
